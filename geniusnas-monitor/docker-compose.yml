@@ -1,0 +1,39 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: geniusnas-monitor_server_1
+      APP_PORT: 8080
+      PROXY_AUTH_WHITELIST: "/health"
+
+  server:
+    image: python:3.12.15-alpine3.24
+    user: "1000:1000"
+    init: true
+    command: ["python", "-B", "/opt/checker.py"]
+    environment:
+      EXPECTED_SOURCE: ${GENIUSNAS_EXPECTED_SOURCE:?Configure the expected source on Umbrel}
+      MEDIA_ROOT: /nas/Media
+      PORT: "8080"
+      PYTHONDONTWRITEBYTECODE: "1"
+    volumes:
+      - type: bind
+        source: ${APP_DATA_DIR}/checker.py
+        target: /opt/checker.py
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ${GENIUSNAS_PARENT_PATH:?Configure the NAS parent on Umbrel}
+        target: /nas
+        read_only: true
+        bind:
+          propagation: rslave
+          create_host_path: false
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    restart: on-failure

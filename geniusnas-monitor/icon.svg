@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="NAS mount health">
+  <rect width="256" height="256" rx="54" fill="#102a43"/>
+  <rect x="43" y="54" width="170" height="61" rx="15" fill="#d9eafd"/>
+  <rect x="43" y="141" width="170" height="61" rx="15" fill="#d9eafd"/>
+  <circle cx="72" cy="84" r="9" fill="#2b8a3e"/>
+  <circle cx="72" cy="171" r="9" fill="#2b8a3e"/>
+  <path d="M105 84h75M105 171h75" stroke="#4a657b" stroke-width="11" stroke-linecap="round"/>
+</svg>
