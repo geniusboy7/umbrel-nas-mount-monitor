@@ -1,0 +1,23 @@
+manifestVersion: 1
+id: geniusnas-monitor
+name: NAS Mount Monitor
+tagline: Detect when a NAS media mount is unavailable
+icon: https://raw.githubusercontent.com/geniusboy7/umbrel-nas-mount-monitor/main/geniusnas-monitor/icon.svg
+category: Development
+version: "1.0.0"
+port: 48242
+description: >-
+  Exposes a read-only health check for a configured CIFS media mount.
+  It checks mount identity and directory metadata without opening media files.
+developer: geniusboy7
+website: https://github.com/geniusboy7/umbrel-nas-mount-monitor
+submitter: geniusboy7
+submission: https://github.com/geniusboy7/umbrel-nas-mount-monitor
+repo: https://github.com/geniusboy7/umbrel-nas-mount-monitor
+support: https://github.com/geniusboy7/umbrel-nas-mount-monitor/issues
+gallery: []
+releaseNotes: Initial release of the read-only health endpoint.
+dependencies: []
+path: /health
+defaultUsername: ""
+defaultPassword: ""
