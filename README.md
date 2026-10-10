@@ -13,6 +13,6 @@ Before installation, create these two plain-text files under `$UMBREL_ROOT/app-d
 
 Those values stay on the device and are read by `exports.sh` when Umbrel starts the app. The public app store contains no local hostname, IP address, mount path, credential, or notification setting. The source parent must already exist; Docker is configured not to create a missing host path.
 
-Add this repository as an Umbrel Community App Store and install **NAS Mount Monitor**. Point an Uptime Kuma HTTP monitor at the app's `/health` URL. A 60-second interval and the desired notification can be configured in Kuma.
+Add this repository as an Umbrel Community App Store and install **NAS Mount Monitor**. If Uptime Kuma is installed as an Umbrel app, use `http://geniusnas-monitor_server_1:8080/health` for its HTTP monitor. Umbrel's app proxy may listen only on host loopback, while Umbrel apps can reach the checker through the shared internal network. Set a 60-second interval and select the desired notification in Kuma.
 
 Run the checker tests with `python3 -m unittest discover -s geniusnas-monitor -v` from this repository root.
